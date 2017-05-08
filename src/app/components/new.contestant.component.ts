@@ -17,7 +17,7 @@ export class NewContestantComponent  {
   constructor(private contestantsService: ContestantsService, private router: Router){
   }
 
-  addQueen(queen){
+  addQueen(queen:any){
     this.contestantsService.addContestant(queen).subscribe(contestant => {
       this.contestant = contestant
     })

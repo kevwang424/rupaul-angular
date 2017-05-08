@@ -20,7 +20,7 @@ export class ContestantsService{
     return this.http.get(this.url).map(res => res.json())
   }
 
-  addContestant(body){
+  addContestant(body:any){
     if (body.date_of_death === ""){
       body.date_of_death = null
     }

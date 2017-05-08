@@ -15,7 +15,7 @@ require("rxjs/add/operator/map");
 var ContestantsService = (function () {
     function ContestantsService(http) {
         this.http = http;
-        this.url = 'http://localhost:3000/api/contestants';
+        this.url = 'https://rupauls-drag-race-api.herokuapp.com/api/contestants';
         console.log("Contestants Service Initialized...");
     }
     ContestantsService.prototype.getContestants = function () {
