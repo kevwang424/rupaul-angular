@@ -1,0 +1,1 @@
+{"version":3,"file":"new.contestant.component.js","sourceRoot":"","sources":["new.contestant.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,sCAA0C;AAO1C,IAAa,sBAAsB;IACjC;IAEA,CAAC;IACH,6BAAC;AAAD,CAAC,AAJD,IAIC;AAJY,sBAAsB;IALlC,gBAAS,CAAC;QACT,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,QAAQ,EAAE,gBAAgB;QAC1B,WAAW,EAAE,+BAA+B;KAC7C,CAAC;;GACW,sBAAsB,CAIlC;AAJY,wDAAsB"}

@@ -1,38 +1,14 @@
-<h1>{{name}}</h1>
-<p>Email: {{email}}</p>
-<p>Address: {{address.street}} {{address.city}}, {{address.state}}</p>
-<button (click)="toggleHobbies()">{{showHobbies ? "Hide Hobbies" : "Show Hobbies"}}</button>
-
-<div *ngIf="showHobbies">
-  <h3>Hobbies:</h3>
-  <ul>
-    <li *ngFor="let hobby of hobbies; let i=index">
-      {{hobby}} <button (click)="deleteHobby(i)">X</button>
-    </li>
-  </ul>
-  <form (submit)="addHobby(hobby.value)">
-    <label>Add Hobby: </label><br/>
-    <input type="text" #hobby /><br/>
-  </form>
-</div>
-
 <hr />
-<h3>Edit User</h3>
-<form>
-  <label>Name: </label><br/>
-  <input type="text" name="name" [(ngModel)]="name" /><br/>
-  <label>Email: </label><br/>
-  <input type="text" name="email" [(ngModel)]="email" /><br/>
-  <label>Street: </label><br/>
-  <input type="text" name="address.street" [(ngModel)]="address.street" /><br/>
-  <label>City: </label><br/>
-  <input type="text" name="address.city" [(ngModel)]="address.city" /><br/>
-  <label>State: </label><br/>
-  <input type="text" name="address.state" [(ngModel)]="address.state" /><br/>
-</form>
-
-<hr />
-<div *ngFor="let contestant of contestants">
-  <h3>{{contestant.title}}</h3>
-  <p>{{contestant.body}}</p>
+<div class="row">
+  <div class="col-md-3" *ngFor="let contestant of contestants">
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><h4>{{contestant.name}}</h4></li>
+        <li class="list-group-item"><strong>Born:</strong> {{contestant.birth_name}}</li>
+        <li class="list-group-item"><strong>Hometown:</strong>{{contestant.hometown}}</li>
+        <li class="list-group-item"><strong>Date of Birth:</strong> {{contestant.date_of_birth}}</li>
+        <li class="list-group-item"><strong>Date of Death:</strong> {{contestant.date_of_death}}</li>
+      </ul>
+    </div>
+  </div>
 </div>

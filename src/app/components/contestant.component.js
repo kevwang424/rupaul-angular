@@ -14,28 +14,10 @@ var ContestantComponent = (function () {
     function ContestantComponent(contestantsService) {
         var _this = this;
         this.contestantsService = contestantsService;
-        this.name = 'Kevin',
-            this.email = 'kevin@kevin.com',
-            this.address = {
-                street: "123 Main St",
-                city: "Boston",
-                state: "MA"
-            };
-        this.hobbies = ["Music", "Movies", "Sports"];
-        this.showHobbies = true;
         this.contestantsService.getContestants().subscribe(function (contestants) {
             _this.contestants = contestants;
         });
     }
-    ContestantComponent.prototype.toggleHobbies = function () {
-        this.showHobbies = !this.showHobbies;
-    };
-    ContestantComponent.prototype.addHobby = function (hobby) {
-        this.hobbies.push(hobby);
-    };
-    ContestantComponent.prototype.deleteHobby = function (index) {
-        this.hobbies.splice(index, 1);
-    };
     return ContestantComponent;
 }());
 ContestantComponent = __decorate([

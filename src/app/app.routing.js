@@ -2,6 +2,7 @@
 var router_1 = require("@angular/router");
 var contestant_component_1 = require("./components/contestant.component");
 var about_component_1 = require("./components/about.component");
+var new_contestant_component_1 = require("./components/new.contestant.component");
 var appRoutes = [
     {
         path: '',
@@ -10,6 +11,10 @@ var appRoutes = [
     {
         path: 'about',
         component: about_component_1.AboutComponent
+    },
+    {
+        path: 'contestants/new',
+        component: new_contestant_component_1.NewContestantComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

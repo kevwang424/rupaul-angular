@@ -12,6 +12,7 @@ var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var contestant_component_1 = require("./components/contestant.component");
 var about_component_1 = require("./components/about.component");
+var new_contestant_component_1 = require("./components/new.contestant.component");
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
@@ -21,7 +22,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
-        declarations: [app_component_1.AppComponent, contestant_component_1.ContestantComponent, about_component_1.AboutComponent],
+        declarations: [app_component_1.AppComponent, contestant_component_1.ContestantComponent, about_component_1.AboutComponent, new_contestant_component_1.NewContestantComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

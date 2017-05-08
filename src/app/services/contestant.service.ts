@@ -9,6 +9,6 @@ export class ContestantsService{
   }
 
   getContestants(){
-    return this.http.get("https://jsonplaceholder.typicode.com/posts").map(res => res.json())
+    return this.http.get("http://localhost:3000/api/contestants").map(res => res.json())
   }
 }

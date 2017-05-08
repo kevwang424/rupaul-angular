@@ -9,21 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
-var ContestantsService = (function () {
-    function ContestantsService(http) {
-        this.http = http;
-        console.log("Contestants Service Initialized...");
+var NewContestantComponent = (function () {
+    function NewContestantComponent() {
     }
-    ContestantsService.prototype.getContestants = function () {
-        return this.http.get("http://localhost:3000/api/contestants").map(function (res) { return res.json(); });
-    };
-    return ContestantsService;
+    return NewContestantComponent;
 }());
-ContestantsService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], ContestantsService);
-exports.ContestantsService = ContestantsService;
-//# sourceMappingURL=contestant.service.js.map
+NewContestantComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'new-contestant',
+        templateUrl: 'new.contestant.component.html'
+    }),
+    __metadata("design:paramtypes", [])
+], NewContestantComponent);
+exports.NewContestantComponent = NewContestantComponent;
+//# sourceMappingURL=new.contestant.component.js.map
