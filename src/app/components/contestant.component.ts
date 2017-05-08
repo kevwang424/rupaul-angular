@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContestantsService } from '../services/contestant.service';
+import { Contestant } from '../contestant'
 
 @Component({
   moduleId: module.id,
@@ -7,22 +8,17 @@ import { ContestantsService } from '../services/contestant.service';
   templateUrl: 'contestant.component.html',
   providers: [ContestantsService]
 })
-export class ContestantComponent  {
+export class ContestantComponent implements OnInit {
 
-  contestants: contestants
+  contestants: Contestant[]
 
   constructor(private contestantsService: ContestantsService){
+  }
+
+  ngOnInit(){
     this.contestantsService.getContestants().subscribe(contestants => {
       this.contestants = contestants
     })
   }
 
-}
-
-interface contestants {
-  name: string
-  birth_name: string
-  hometown: string
-  date_of_birth: string
-  date_of_death: string
 }

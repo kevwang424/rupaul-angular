@@ -10,14 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+require("rxjs/Rx");
 require("rxjs/add/operator/map");
 var ContestantsService = (function () {
     function ContestantsService(http) {
         this.http = http;
+        this.url = 'http://localhost:3000/api/contestants';
         console.log("Contestants Service Initialized...");
     }
     ContestantsService.prototype.getContestants = function () {
-        return this.http.get("http://localhost:3000/api/contestants").map(function (res) { return res.json(); });
+        return this.http.get(this.url).map(function (res) { return res.json(); });
+    };
+    ContestantsService.prototype.addContestant = function (body) {
+        if (body.date_of_death === "") {
+            body.date_of_death = null;
+        }
+        return this.http.post(this.url, body).map(function (res) { return res.json(); });
     };
     return ContestantsService;
 }());

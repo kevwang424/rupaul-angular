@@ -5,31 +5,31 @@
     <form>
       <div class="form-group">
         <label>Name: </label><br/>
-        <input type="text" name="name" [(ngModel)]="name" class="form-control" /><br/>
+        <input type="text" name="name" #name class="form-control" /><br/>
       </div>
 
       <div class="form-group">
         <label>Birth Name: </label><br/>
-        <input type="text" name="birth_name" [(ngModel)]="birth_name" class="form-control" /><br/>
+        <input type="text" name="birth_name" #birth_name class="form-control" /><br/>
       </div>
 
       <div class="form-group">
         <label>Hometown: </label><br/>
-        <input type="text" name="hometown" [(ngModel)]="hometown" class="form-control" /><br/>
+        <input type="text" name="hometown" #hometown class="form-control" /><br/>
       </div>
 
       <div class="form-group">
         <label>Date of Birth: </label><br/>
-        <input type="date" name="date_of_birth" [(ngModel)]="date_of_birth" class="form-control" /><br/>
+        <input type="date" name="date_of_birth" #date_of_birth class="form-control" /><br/>
       </div>
 
       <div class="form-group">
         <label>Date of Death: </label><br/>
-        <input type="date" name="date_of_death" [(ngModel)]="date_of_death" class="form-control" /><br/>
+        <input type="date" name="date_of_death" #date_of_death class="form-control" /><br/>
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" (click)="addQueen({name: name.value, birth_name: birth_name.value, hometown: hometown.value, date_of_birth: date_of_birth.value, date_of_death: date_of_death.value})" class="btn btn-success">Submit</button>
       </div>
     </form>
   </div>

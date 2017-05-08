@@ -9,18 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var contestant_service_1 = require("../services/contestant.service");
+var router_1 = require("@angular/router");
 var NewContestantComponent = (function () {
-    function NewContestantComponent() {
+    function NewContestantComponent(contestantsService, router) {
+        this.contestantsService = contestantsService;
+        this.router = router;
     }
+    NewContestantComponent.prototype.addQueen = function (queen) {
+        var _this = this;
+        this.contestantsService.addContestant(queen).subscribe(function (contestant) {
+            _this.contestant = contestant;
+        });
+        this.router.navigate(['']);
+    };
     return NewContestantComponent;
 }());
 NewContestantComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'new-contestant',
-        templateUrl: 'new.contestant.component.html'
+        templateUrl: 'new.contestant.component.html',
+        providers: [contestant_service_1.ContestantsService]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [contestant_service_1.ContestantsService, router_1.Router])
 ], NewContestantComponent);
 exports.NewContestantComponent = NewContestantComponent;
 //# sourceMappingURL=new.contestant.component.js.map

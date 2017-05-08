@@ -17,7 +17,13 @@ const appRoutes: Routes = [
   {
     path: 'contestants/new',
     component: NewContestantComponent
+  },
+
+  {
+    path: '**',
+    redirectTo: ''
   }
+
 ]
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes)

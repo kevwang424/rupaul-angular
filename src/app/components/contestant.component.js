@@ -12,12 +12,14 @@ var core_1 = require("@angular/core");
 var contestant_service_1 = require("../services/contestant.service");
 var ContestantComponent = (function () {
     function ContestantComponent(contestantsService) {
-        var _this = this;
         this.contestantsService = contestantsService;
+    }
+    ContestantComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.contestantsService.getContestants().subscribe(function (contestants) {
             _this.contestants = contestants;
         });
-    }
+    };
     return ContestantComponent;
 }());
 ContestantComponent = __decorate([

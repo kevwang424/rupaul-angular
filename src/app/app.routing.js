@@ -15,6 +15,10 @@ var appRoutes = [
     {
         path: 'contestants/new',
         component: new_contestant_component_1.NewContestantComponent
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
