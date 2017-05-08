@@ -10,7 +10,7 @@ import { Contestant } from '../contestant'
 @Injectable()
 export class ContestantsService{
 
-  private url = 'http://localhost:3000/api/contestants'
+  private url = 'https://rupauls-drag-race-api.herokuapp.com/api/contestants'
 
   constructor(private http: Http){
     console.log("Contestants Service Initialized...")
