@@ -10,7 +10,7 @@ import { Contestant } from '../contestant'
 @Injectable()
 export class ContestantsService{
 
-  private url = 'https://rupauls-drag-race-api.herokuapp.com/api/contestants'
+  private url = 'http://localhost:3000/api/v1/contestants'
 
   constructor(private http: Http){
     console.log("Contestants Service Initialized...")
@@ -25,5 +25,9 @@ export class ContestantsService{
       body.date_of_death = null
     }
     return this.http.post(this.url, body).map(res => res.json())
+  }
+
+  deleteContestant(id:number){
+    return this.http.delete(`${this.url}/${id}`).map(res => res.json())
   }
 }

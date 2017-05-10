@@ -21,4 +21,10 @@ export class ContestantComponent implements OnInit {
     })
   }
 
+  deleteQueen(id:number){
+    this.contestantsService.deleteContestant(id).subscribe(contestants => {
+      this.contestants = contestants
+    })
+  }
+
 }

@@ -20,6 +20,12 @@ var ContestantComponent = (function () {
             _this.contestants = contestants;
         });
     };
+    ContestantComponent.prototype.deleteQueen = function (id) {
+        var _this = this;
+        this.contestantsService.deleteContestant(id).subscribe(function (contestants) {
+            _this.contestants = contestants;
+        });
+    };
     return ContestantComponent;
 }());
 ContestantComponent = __decorate([

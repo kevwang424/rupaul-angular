@@ -8,6 +8,7 @@
         <li class="list-group-item"><strong>Hometown:</strong> {{contestant.hometown}}</li>
         <li class="list-group-item"><strong>Date of Birth:</strong> {{contestant.date_of_birth}}</li>
         <li class="list-group-item"><strong>Date of Death:</strong> {{contestant.date_of_death}}</li>
+        <li class="list-group-item"><button (click)="deleteQueen(contestant.id)">Delete Contestant</button></li>
       </ul>
     </div>
   </div>

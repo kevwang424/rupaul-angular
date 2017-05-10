@@ -15,7 +15,7 @@ require("rxjs/add/operator/map");
 var ContestantsService = (function () {
     function ContestantsService(http) {
         this.http = http;
-        this.url = 'https://rupauls-drag-race-api.herokuapp.com/api/contestants';
+        this.url = 'http://localhost:3000/api/v1/contestants';
         console.log("Contestants Service Initialized...");
     }
     ContestantsService.prototype.getContestants = function () {
@@ -26,6 +26,9 @@ var ContestantsService = (function () {
             body.date_of_death = null;
         }
         return this.http.post(this.url, body).map(function (res) { return res.json(); });
+    };
+    ContestantsService.prototype.deleteContestant = function (id) {
+        return this.http.delete(this.url + "/" + id).map(function (res) { return res.json(); });
     };
     return ContestantsService;
 }());
