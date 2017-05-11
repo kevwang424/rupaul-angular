@@ -10,32 +10,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var contestant_service_1 = require("../services/contestant.service");
-var ContestantComponent = (function () {
-    function ContestantComponent(contestantsService) {
+var ContestantListComponent = (function () {
+    function ContestantListComponent(contestantsService) {
         this.contestantsService = contestantsService;
     }
-    ContestantComponent.prototype.ngOnInit = function () {
+    ContestantListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.contestantsService.getContestants().subscribe(function (contestants) {
             _this.contestants = contestants;
         });
     };
-    ContestantComponent.prototype.deleteQueen = function (id) {
+    ContestantListComponent.prototype.deleteQueen = function (id) {
         var _this = this;
         this.contestantsService.deleteContestant(id).subscribe(function (contestants) {
             _this.contestants = contestants;
         });
     };
-    return ContestantComponent;
+    return ContestantListComponent;
 }());
-ContestantComponent = __decorate([
+ContestantListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'contestant',
-        templateUrl: 'contestant.component.html',
+        templateUrl: 'contestant-list.component.html',
         providers: [contestant_service_1.ContestantsService]
     }),
     __metadata("design:paramtypes", [contestant_service_1.ContestantsService])
-], ContestantComponent);
-exports.ContestantComponent = ContestantComponent;
-//# sourceMappingURL=contestant.component.js.map
+], ContestantListComponent);
+exports.ContestantListComponent = ContestantListComponent;
+//# sourceMappingURL=contestant-list.component.js.map

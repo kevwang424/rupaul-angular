@@ -21,18 +21,22 @@ var ContestantsService = (function () {
     }
     ContestantsService.prototype.getContestants = function () {
         return this.http.get(this.contestantsUrl).map(function (res) { return res.json(); })
-            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || "Server error"); });
     };
     ContestantsService.prototype.addContestant = function (body) {
         if (body.date_of_death === "") {
             body.date_of_death = null;
         }
         return this.http.post(this.contestantsUrl, body).map(function (res) { return res.json(); })
-            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || "Server error"); });
     };
     ContestantsService.prototype.deleteContestant = function (id) {
         return this.http.delete(this.contestantsUrl + "/" + id).map(function (res) { return res.json(); })
-            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || "Server error"); });
+    };
+    ContestantsService.prototype.getContestant = function (id) {
+        return this.http.get("$this.contestantsUrl}/" + id).map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || "Server error"); });
     };
     return ContestantsService;
 }());

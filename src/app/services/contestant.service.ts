@@ -18,7 +18,7 @@ export class ContestantsService{
 
   getContestants(): Observable<Contestant[]>{
     return this.http.get(this.contestantsUrl).map(res => res.json())
-          .catch((error) => Observable.throw(error.json().error || 'Server error'))
+          .catch((error) => Observable.throw(error.json().error || "Server error"))
   }
 
   addContestant(body:any){
@@ -26,11 +26,16 @@ export class ContestantsService{
       body.date_of_death = null
     }
     return this.http.post(this.contestantsUrl, body).map(res => res.json())
-    .catch((error) => Observable.throw(error.json().error || 'Server error'))
+    .catch((error) => Observable.throw(error.json().error || "Server error"))
   }
 
   deleteContestant(id:number){
     return this.http.delete(`${this.contestantsUrl}/${id}`).map(res => res.json())
-    .catch((error) => Observable.throw(error.json().error || 'Server error'))
+    .catch((error) => Observable.throw(error.json().error || "Server error"))
+  }
+
+  getContestant(id:number){
+    return this.http.get(`$this.contestantsUrl}/${id}`).map(res => res.json())
+    .catch((error) => Observable.throw(error.json().error || "Server error"))
   }
 }

@@ -5,10 +5,10 @@ import { Contestant } from '../model/contestant'
 @Component({
   moduleId: module.id,
   selector: 'contestant',
-  templateUrl: 'contestant.component.html',
+  templateUrl: 'contestant-list.component.html',
   providers: [ContestantsService]
 })
-export class ContestantComponent implements OnInit {
+export class ContestantListComponent implements OnInit {
 
   contestants: Contestant[]
 
@@ -26,5 +26,11 @@ export class ContestantComponent implements OnInit {
       this.contestants = contestants
     })
   }
+
+  // editQueen(id:number){
+  //   this.contestantsService.getContestant(id).subscribe(contestants => {
+  //     this.contestant = contestant
+  //   })
+  // }
 
 }

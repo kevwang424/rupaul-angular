@@ -1,12 +1,12 @@
 "use strict";
 var router_1 = require("@angular/router");
-var contestant_component_1 = require("./components/contestant.component");
+var contestant_list_component_1 = require("./components/contestant-list.component");
 var about_component_1 = require("./components/about.component");
 var new_contestant_component_1 = require("./components/new.contestant.component");
 var appRoutes = [
     {
-        path: '',
-        component: contestant_component_1.ContestantComponent
+        path: 'contestants',
+        component: contestant_list_component_1.ContestantListComponent
     },
     {
         path: 'about',
@@ -18,7 +18,7 @@ var appRoutes = [
     },
     {
         path: '**',
-        redirectTo: ''
+        redirectTo: '/contestants'
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

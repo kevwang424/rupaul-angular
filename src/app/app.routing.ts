@@ -1,14 +1,14 @@
 import { ModuleWithProviders } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-import { ContestantComponent } from './components/contestant.component'
+import { ContestantListComponent } from './components/contestant-list.component'
 import { AboutComponent } from './components/about.component'
 import { NewContestantComponent } from './components/new.contestant.component'
 
 const appRoutes: Routes = [
   {
-    path: '',
-    component: ContestantComponent
+    path: 'contestants',
+    component: ContestantListComponent
   },
   {
     path: 'about',
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
 
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: '/contestants'
   }
 
 ]
