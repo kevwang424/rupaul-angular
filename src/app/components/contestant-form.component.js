@@ -16,6 +16,15 @@ var ContestantFormComponent = (function () {
         this.contestantsService = contestantsService;
         this.router = router;
     }
+    ContestantFormComponent.prototype.ngOnInit = function () {
+        this.contestant = {
+            name: '',
+            birthname: '',
+            hometown: '',
+            date_of_birth: '',
+            date_of_death: ''
+        };
+    };
     ContestantFormComponent.prototype.addQueen = function (queen) {
         var _this = this;
         this.contestantsService.addContestant(queen).subscribe(function (contestant) {

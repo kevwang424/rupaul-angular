@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContestantsService } from '../services/contestant.service'
 import { Contestant } from '../model/contestant'
 import { Router } from '@angular/router'
@@ -10,11 +10,21 @@ import { Router } from '@angular/router'
   providers: [ContestantsService]
 })
 
-export class ContestantFormComponent  {
+export class ContestantFormComponent implements OnInit {
 
   contestant: Contestant[]
 
   constructor(private contestantsService: ContestantsService, private router: Router){
+  }
+
+  ngOnInit(){
+    this.contestant = {
+      name: '',
+      birthname: '',
+      hometown: '',
+      date_of_birth: '',
+      date_of_death: ''
+    }
   }
 
   addQueen(queen:any){

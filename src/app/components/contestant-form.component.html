@@ -2,34 +2,34 @@
   <div class="col-md-6 col-md-offset-3">
     <h1>Enter New Contestant Info</h1>
 
-    <form>
+    <form #f="ngForm" (ngSubmit)="addQueen(f.value)">
       <div class="form-group">
         <label>Name: </label><br/>
-        <input type="text" name="name" #name class="form-control" /><br/>
+        <input type="text" name="name" [(ngModel)]="contestant.name" #name="ngModel" class="form-control" /><br/>
       </div>
 
       <div class="form-group">
         <label>Birth Name: </label><br/>
-        <input type="text" name="birth_name" #birth_name class="form-control" /><br/>
+        <input type="text" name="birth_name" [(ngModel)]="contestant.birth_name" #birth_name="ngModel" class="form-control" /><br/>
       </div>
 
       <div class="form-group">
         <label>Hometown: </label><br/>
-        <input type="text" name="hometown" #hometown class="form-control" /><br/>
+        <input type="text" name="hometown" [(ngModel)]="contestant.hometown" #hometown="ngModel" class="form-control" /><br/>
       </div>
 
       <div class="form-group">
         <label>Date of Birth: </label><br/>
-        <input type="date" name="date_of_birth" #date_of_birth class="form-control" /><br/>
+        <input type="date" name="date_of_birth" [(ngModel)]="contestant.date_of_birth" #date_of_birth="ngModel" class="form-control" /><br/>
       </div>
 
       <div class="form-group">
         <label>Date of Death: </label><br/>
-        <input type="date" name="date_of_death" #date_of_death class="form-control" /><br/>
+        <input type="date" name="date_of_death" [(ngModel)]="contestant.date_of_death" #date_of_death="ngModel" class="form-control" /><br/>
       </div>
 
       <div class="form-group">
-        <button type="button" (click)="addQueen({name: name.value, birth_name: birth_name.value, hometown: hometown.value, date_of_birth: date_of_birth.value, date_of_death: date_of_death.value})" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
       </div>
     </form>
   </div>
