@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContestantsService } from '../services/contestant.service';
-import { Contestant } from '../contestant'
+import { Contestant } from '../model/contestant'
 
 @Component({
   moduleId: module.id,

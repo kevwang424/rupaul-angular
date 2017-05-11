@@ -10,25 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var Rx_1 = require("rxjs/Rx");
 require("rxjs/Rx");
 require("rxjs/add/operator/map");
 var ContestantsService = (function () {
     function ContestantsService(http) {
         this.http = http;
-        this.url = 'http://localhost:3000/api/v1/contestants';
+        this.contestantsUrl = 'http://localhost:3000/api/v1/contestants';
         console.log("Contestants Service Initialized...");
     }
     ContestantsService.prototype.getContestants = function () {
-        return this.http.get(this.url).map(function (res) { return res.json(); });
+        return this.http.get(this.contestantsUrl).map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     ContestantsService.prototype.addContestant = function (body) {
         if (body.date_of_death === "") {
             body.date_of_death = null;
         }
-        return this.http.post(this.url, body).map(function (res) { return res.json(); });
+        return this.http.post(this.contestantsUrl, body).map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     ContestantsService.prototype.deleteContestant = function (id) {
-        return this.http.delete(this.url + "/" + id).map(function (res) { return res.json(); });
+        return this.http.delete(this.contestantsUrl + "/" + id).map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     return ContestantsService;
 }());
