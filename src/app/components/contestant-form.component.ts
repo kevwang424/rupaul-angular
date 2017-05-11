@@ -12,7 +12,7 @@ import { Router } from '@angular/router'
 
 export class ContestantFormComponent implements OnInit {
 
-  contestant: Contestant[]
+  contestant: Contestant
 
   constructor(private contestantsService: ContestantsService, private router: Router){
   }
@@ -20,7 +20,7 @@ export class ContestantFormComponent implements OnInit {
   ngOnInit(){
     this.contestant = {
       name: '',
-      birthname: '',
+      birth_name: '',
       hometown: '',
       date_of_birth: '',
       date_of_death: ''

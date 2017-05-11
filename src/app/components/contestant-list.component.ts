@@ -28,7 +28,7 @@ export class ContestantListComponent implements OnInit {
   }
 
   // editQueen(id:number){
-  //   this.contestantsService.getContestant(id).subscribe(contestants => {
+  //   this.contestantsService.getContestant(id).subscribe(contestant => {
   //     this.contestant = contestant
   //   })
   // }

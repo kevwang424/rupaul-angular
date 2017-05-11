@@ -1,4 +1,4 @@
-export interface Contestant{
+export interface Contestant {
   name: string
   birth_name: string
   hometown: string

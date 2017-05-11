@@ -19,7 +19,7 @@ var ContestantFormComponent = (function () {
     ContestantFormComponent.prototype.ngOnInit = function () {
         this.contestant = {
             name: '',
-            birthname: '',
+            birth_name: '',
             hometown: '',
             date_of_birth: '',
             date_of_death: ''
