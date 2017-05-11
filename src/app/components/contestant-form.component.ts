@@ -6,11 +6,11 @@ import { Router } from '@angular/router'
 @Component({
   moduleId: module.id,
   selector: 'new-contestant',
-  templateUrl: 'new.contestant.component.html',
+  templateUrl: 'contestant-form.component.html',
   providers: [ContestantsService]
 })
 
-export class NewContestantComponent  {
+export class ContestantFormComponent  {
 
   contestant: Contestant[]
 

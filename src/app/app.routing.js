@@ -2,7 +2,7 @@
 var router_1 = require("@angular/router");
 var contestant_list_component_1 = require("./components/contestant-list.component");
 var about_component_1 = require("./components/about.component");
-var new_contestant_component_1 = require("./components/new.contestant.component");
+var contestant_form_component_1 = require("./components/contestant-form.component");
 var appRoutes = [
     {
         path: 'contestants',
@@ -14,7 +14,7 @@ var appRoutes = [
     },
     {
         path: 'contestants/new',
-        component: new_contestant_component_1.NewContestantComponent
+        component: contestant_form_component_1.ContestantFormComponent
     },
     {
         path: '**',

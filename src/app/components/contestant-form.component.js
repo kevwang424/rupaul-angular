@@ -11,28 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var contestant_service_1 = require("../services/contestant.service");
 var router_1 = require("@angular/router");
-var NewContestantComponent = (function () {
-    function NewContestantComponent(contestantsService, router) {
+var ContestantFormComponent = (function () {
+    function ContestantFormComponent(contestantsService, router) {
         this.contestantsService = contestantsService;
         this.router = router;
     }
-    NewContestantComponent.prototype.addQueen = function (queen) {
+    ContestantFormComponent.prototype.addQueen = function (queen) {
         var _this = this;
         this.contestantsService.addContestant(queen).subscribe(function (contestant) {
             _this.contestant = contestant;
         });
         this.router.navigate(['']);
     };
-    return NewContestantComponent;
+    return ContestantFormComponent;
 }());
-NewContestantComponent = __decorate([
+ContestantFormComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'new-contestant',
-        templateUrl: 'new.contestant.component.html',
+        templateUrl: 'contestant-form.component.html',
         providers: [contestant_service_1.ContestantsService]
     }),
     __metadata("design:paramtypes", [contestant_service_1.ContestantsService, router_1.Router])
-], NewContestantComponent);
-exports.NewContestantComponent = NewContestantComponent;
-//# sourceMappingURL=new.contestant.component.js.map
+], ContestantFormComponent);
+exports.ContestantFormComponent = ContestantFormComponent;
+//# sourceMappingURL=contestant-form.component.js.map

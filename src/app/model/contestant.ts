@@ -1,5 +1,4 @@
 export interface Contestant{
-  id?: number
   name: string
   birth_name: string
   hometown: string

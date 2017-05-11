@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router'
 
 import { ContestantListComponent } from './components/contestant-list.component'
 import { AboutComponent } from './components/about.component'
-import { NewContestantComponent } from './components/new.contestant.component'
+import { ContestantFormComponent } from './components/contestant-form.component'
 
 const appRoutes: Routes = [
   {
@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'contestants/new',
-    component: NewContestantComponent
+    component: ContestantFormComponent
   },
 
   {
