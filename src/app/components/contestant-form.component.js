@@ -12,9 +12,12 @@ var core_1 = require("@angular/core");
 var contestant_service_1 = require("../services/contestant.service");
 var router_1 = require("@angular/router");
 var ContestantFormComponent = (function () {
-    function ContestantFormComponent(contestantsService, router) {
+    function ContestantFormComponent(contestantsService, router, activatedRoute) {
         this.contestantsService = contestantsService;
         this.router = router;
+        this.activatedRoute = activatedRoute;
+        // if editing contestant buttons will be different
+        this.editMode = false;
     }
     ContestantFormComponent.prototype.ngOnInit = function () {
         this.contestant = {
@@ -25,12 +28,34 @@ var ContestantFormComponent = (function () {
             date_of_death: ''
         };
     };
-    ContestantFormComponent.prototype.addQueen = function (queen) {
+    // conditional if editing or not
+    ContestantFormComponent.prototype.submitForm = function () {
         var _this = this;
-        this.contestantsService.addContestant(queen).subscribe(function (contestant) {
-            _this.contestant = contestant;
-        });
-        this.router.navigate(['']);
+        if (!this.editMode) {
+            this.contestantsService.addContestant(this.contestant).subscribe(function (contestant) {
+                _this.contestant = contestant;
+            });
+            this.router.navigate(['contestants']);
+        }
+        else {
+            var id = this.activatedRoute.snapshot.params['id'];
+            this.contestantsService.editContestant(this.contestant, id).subscribe(function (contestant) {
+                _this.contestant = contestant;
+            });
+            this.router.navigate(['contestants']);
+        }
+    };
+    ContestantFormComponent.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        //added route with ID so if there is ID then i will grab queen info and populate on the form
+        var id = this.activatedRoute.snapshot.params['id'];
+        if (id) {
+            // if there is an ID in the routes then it is editing model
+            this.editMode = true;
+            this.contestantsService.getContestant(parseInt(id)).subscribe(function (contestant) {
+                _this.contestant = contestant;
+            });
+        }
     };
     return ContestantFormComponent;
 }());
@@ -41,7 +66,7 @@ ContestantFormComponent = __decorate([
         templateUrl: 'contestant-form.component.html',
         providers: [contestant_service_1.ContestantsService]
     }),
-    __metadata("design:paramtypes", [contestant_service_1.ContestantsService, router_1.Router])
+    __metadata("design:paramtypes", [contestant_service_1.ContestantsService, router_1.Router, router_1.ActivatedRoute])
 ], ContestantFormComponent);
 exports.ContestantFormComponent = ContestantFormComponent;
 //# sourceMappingURL=contestant-form.component.js.map

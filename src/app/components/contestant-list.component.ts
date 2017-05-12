@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { ContestantsService } from '../services/contestant.service';
 import { Contestant } from '../model/contestant'
+import { ContestantFormComponent } from './contestant-form.component'
+
+// get edit form to work
+import { Router } from '@angular/router'
 
 @Component({
   moduleId: module.id,
@@ -8,12 +12,11 @@ import { Contestant } from '../model/contestant'
   templateUrl: 'contestant-list.component.html',
   providers: [ContestantsService]
 })
-export class ContestantListComponent implements OnInit {
+export class ContestantListComponent implements OnInit, AfterContentInit {
 
   contestants: Contestant[]
 
-  constructor(private contestantsService: ContestantsService){
-  }
+  constructor(private contestantsService: ContestantsService, private router: Router){}
 
   ngOnInit(){
     this.contestantsService.getContestants().subscribe(contestants => {
@@ -27,10 +30,14 @@ export class ContestantListComponent implements OnInit {
     })
   }
 
-  // editQueen(id:number){
-  //   this.contestantsService.getContestant(id).subscribe(contestant => {
-  //     this.contestant = contestant
-  //   })
-  // }
+  redirect(id:number){
+    this.router.navigate([`contestants/${id}/edit`])
+  }
+
+  ngAfterContentInit(){
+    this.contestantsService.getContestants().subscribe(contestants => {
+      this.contestants = contestants
+    })
+  }
 
 }

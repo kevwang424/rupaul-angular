@@ -9,8 +9,8 @@
         <li class="list-group-item"><strong>Date of Birth:</strong> {{contestant.date_of_birth}}</li>
         <li class="list-group-item"><strong>Date of Death:</strong> {{contestant.date_of_death}}</li>
         <li class="list-group-item">
-          <button (click)="deleteQueen(contestant.id)">Delete</button>
-          <button (click)="editQueen(contestant.id)">Edit</button>
+          <button type="button" (click)="deleteQueen(contestant.id)">Delete</button>
+          <button type="button" (click)="redirect(contestant.id)">Edit</button>
         </li>
       </ul>
     </div>

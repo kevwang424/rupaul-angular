@@ -16,6 +16,11 @@ var appRoutes = [
         path: 'contestants/new',
         component: contestant_form_component_1.ContestantFormComponent
     },
+    // routing for contestant editing
+    {
+        path: 'contestants/:id/edit',
+        component: contestant_form_component_1.ContestantFormComponent
+    },
     {
         path: '**',
         redirectTo: '/contestants'

@@ -35,7 +35,11 @@ var ContestantsService = (function () {
             .catch(function (error) { return Rx_1.Observable.throw(error.json().error || "Server error"); });
     };
     ContestantsService.prototype.getContestant = function (id) {
-        return this.http.get("$this.contestantsUrl}/" + id).map(function (res) { return res.json(); })
+        return this.http.get(this.contestantsUrl + "/" + id).map(function (res) { return res.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || "Server error"); });
+    };
+    ContestantsService.prototype.editContestant = function (body, id) {
+        return this.http.put(this.contestantsUrl + "/" + id, body).map(function (res) { return res.json(); })
             .catch(function (error) { return Rx_1.Observable.throw(error.json().error || "Server error"); });
     };
     return ContestantsService;

@@ -10,9 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var contestant_service_1 = require("../services/contestant.service");
+// get edit form to work
+var router_1 = require("@angular/router");
 var ContestantListComponent = (function () {
-    function ContestantListComponent(contestantsService) {
+    function ContestantListComponent(contestantsService, router) {
         this.contestantsService = contestantsService;
+        this.router = router;
     }
     ContestantListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -26,6 +29,15 @@ var ContestantListComponent = (function () {
             _this.contestants = contestants;
         });
     };
+    ContestantListComponent.prototype.redirect = function (id) {
+        this.router.navigate(["contestants/" + id + "/edit"]);
+    };
+    ContestantListComponent.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.contestantsService.getContestants().subscribe(function (contestants) {
+            _this.contestants = contestants;
+        });
+    };
     return ContestantListComponent;
 }());
 ContestantListComponent = __decorate([
@@ -35,7 +47,7 @@ ContestantListComponent = __decorate([
         templateUrl: 'contestant-list.component.html',
         providers: [contestant_service_1.ContestantsService]
     }),
-    __metadata("design:paramtypes", [contestant_service_1.ContestantsService])
+    __metadata("design:paramtypes", [contestant_service_1.ContestantsService, router_1.Router])
 ], ContestantListComponent);
 exports.ContestantListComponent = ContestantListComponent;
 //# sourceMappingURL=contestant-list.component.js.map

@@ -1,8 +1,9 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <h1>Enter New Contestant Info</h1>
+    <h1 *ngIf="!editMode">Enter New Contestant Info</h1>
+    <h1 *ngIf="editMode">Edit Contestant Info</h1>
 
-    <form #f="ngForm" (ngSubmit)="addQueen(f.value)">
+    <form #contestantForm="ngForm" (ngSubmit)="submitForm(contestantForm.value)">
       <div class="form-group">
         <label>Name: </label><br/>
         <input type="text" name="name" [(ngModel)]="contestant.name" #name="ngModel" class="form-control" /><br/>
@@ -29,7 +30,8 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button *ngIf="!editMode" type="submit" class="btn btn-success">Submit</button>
+        <button *ngIf="editMode" type="submit" class="btn btn-success">Edit</button>
       </div>
     </form>
   </div>

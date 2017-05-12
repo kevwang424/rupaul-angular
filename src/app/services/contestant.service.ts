@@ -35,7 +35,12 @@ export class ContestantsService{
   }
 
   getContestant(id:number){
-    return this.http.get(`$this.contestantsUrl}/${id}`).map(res => res.json())
+    return this.http.get(`${this.contestantsUrl}/${id}`).map(res => res.json())
+    .catch((error) => Observable.throw(error.json().error || "Server error"))
+  }
+
+  editContestant(body:any, id:number){
+    return this.http.put(`${this.contestantsUrl}/${id}`, body).map(res => res.json())
     .catch((error) => Observable.throw(error.json().error || "Server error"))
   }
 }

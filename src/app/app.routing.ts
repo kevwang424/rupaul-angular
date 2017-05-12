@@ -18,7 +18,11 @@ const appRoutes: Routes = [
     path: 'contestants/new',
     component: ContestantFormComponent
   },
-
+  // routing for contestant editing
+  {
+    path: 'contestants/:id/edit',
+    component: ContestantFormComponent
+  },
   {
     path: '**',
     redirectTo: '/contestants'
